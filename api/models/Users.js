@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
+
 module.exports = {
   attributes: {
     id: {
@@ -35,4 +36,17 @@ module.exports = {
     values.id = uuidv4();
     return proceed();
   },
+
+  novo: async function (userData) {
+    return await Users.create(userData).fetch();
+  },
+
+  findOne: async function (criteria) {
+    return await Users.findOne(criteria);
+  },
+
+  create: async function (userData) {
+
+    return userData;
+  }
 };
